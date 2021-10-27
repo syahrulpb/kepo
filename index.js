@@ -9,6 +9,7 @@ const functionRegistWeb = (email, reff) => new Promise((resolve, reject) => {
     const params = new URLSearchParams;
     params.append('email', email);
     params.append('mu', reff);
+    params.append('no-bad-guys', 'mnp2BAQ9kct.dgz8qav')
 
     fetch('https://www.benzinga.com/zing', { 
         method: 'POST', 
@@ -110,7 +111,7 @@ const functionVeryf = (realUrl) => new Promise((resolve, reject) => {
     for(var i = 0; i < jml; i++){
         try {
 
-            const email = `${random.first()}${randomize('0', 5)}@gmailya.com`.toLowerCase()
+            const email = `${randomize('a0', 8)}@gmailya.com`.toLowerCase()
     
             console.log(`[+] Mencoba regist web dengan ${email}`)
 
@@ -119,20 +120,27 @@ const functionVeryf = (realUrl) => new Promise((resolve, reject) => {
             } while(!registWeb)
             
             console.log(`[+] ${registWeb}`)
+
+            let count = 0;
     
             do {
+                count++
                 var veryfLink = await functionGetLink(`${email.split('@')[0]}`, `${email.split('@')[1]}`);
-            } while (!veryfLink);
+            } while (!veryfLink && count != 15);
+
+            if(count != 15){
+                console.log(`[+] Berhasil mendapatkan link verif`)
     
-            console.log(`[+] Berhasil mendapatkan link verif`)
-    
-            const getReal = await functionGetReal(veryfLink)
-            
-            const realUrl = getReal[0]
-    
-            const veryf = await functionVeryf(realUrl)
-    
-            console.log(`[+] ${veryf}\n`)
+                const getReal = await functionGetReal(veryfLink)
+                
+                const realUrl = getReal[0]
+        
+                const veryf = await functionVeryf(realUrl)
+        
+                console.log(`[+] ${veryf}\n`)
+            } else {
+                console.log(`[!] Gagal mendapatkan link verif\n`)
+            }
     
         } catch (e) {
             console.log(`[!] Err : ${e}`)
