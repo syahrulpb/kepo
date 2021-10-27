@@ -10,6 +10,7 @@ const functionRegistWeb = (email, reff) => new Promise((resolve, reject) => {
     params.append('email', email);
     params.append('mu', reff);
     params.append('no-bad-guys', 'mnp2BAQ9kct.dgz8qav')
+    params.append('pid', '7HLqiP2e96L8qJyKIm2y24C20YyMx57kX5F2');
 
     fetch('https://www.benzinga.com/zing', { 
         method: 'POST', 
