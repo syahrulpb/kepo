@@ -1,0 +1,20 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.6.1",
+    "randomatic": "^3.1.1",
+    "randomize": "0.0.4",
+    "random-name": "^0.1.2",
+    "readline-sync": "^1.4.10"
+  }
+}
